@@ -30,7 +30,7 @@ namespace MiscPatches.Patches {
                 typeof(CustomLevelManager), nameof(CustomLevelManager.peakName)
             );
 
-            FieldInfo customPathInfo = AccessTools.Field(
+            FieldInfo customLevelInfo = AccessTools.Field(
                 typeof(CustomLevelStamps), nameof(customLevelName)
             );
 
@@ -41,7 +41,7 @@ namespace MiscPatches.Patches {
                     new CodeInstruction(OpCodes.Ldstr, ".es3"),
                 },
                 new[] {
-                    new CodeInstruction(OpCodes.Ldsfld, customPathInfo),
+                    new CodeInstruction(OpCodes.Ldsfld, customLevelInfo),
                     new CodeInstruction(OpCodes.Ldstr, ".es3"),
                 }
             );
