@@ -8,6 +8,9 @@ namespace MiscPatches {
      * </summary>
      */
     internal static class Config {
+        [Field("Avian Achievements")]
+        internal static ConfigEntry<bool> avianAchievements { get; private set; }
+
         [Field("Custom Level Stamps")]
         internal static ConfigEntry<bool> customLevelStamps { get; private set; }
 
@@ -37,6 +40,12 @@ namespace MiscPatches {
          * <param name="configFile">The config file to bind to</param>
          */
         internal static void Init(ConfigFile configFile) {
+            avianAchievements = configFile.Bind(
+                "Patches", "avianAchievements", true,
+                "Whether to fix wally mode and avian chaos rewards so they can use"
+                + " your achievements, instead of relying solely on your save data."
+            );
+
             customLevelStamps = configFile.Bind(
                 "Patches", "customLevelStamps", true,
                 "Whether to fix stamping in custom levels so the stamper doesn't"

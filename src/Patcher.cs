@@ -29,6 +29,7 @@ namespace MiscPatches {
          * </summary>
          */
         internal static void Patch() {
+            Apply(typeof(AvianAchievements));
             Apply(typeof(CustomLevelStamps));
             Apply(typeof(CustomLevelTA));
             Apply(typeof(DisableOriginShift));
