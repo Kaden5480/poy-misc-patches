@@ -17,6 +17,9 @@ namespace MiscPatches {
         [Field("Custom Level TA")]
         internal static ConfigEntry<bool> customLevelTA { get; private set; }
 
+        [Field("Disable Distance Activator")]
+        internal static ConfigEntry<bool> disableDistanceActivator { get; private set; }
+
         [Field("Disable Origin Shift")]
         internal static ConfigEntry<bool> disableOriginShift { get; private set; }
 
@@ -56,6 +59,12 @@ namespace MiscPatches {
                 "Patches", "customLevelTA", true,
                 "Whether TimeAttack in custom levels should be patched so PBs"
                 + " get updated correctly."
+            );
+
+            disableDistanceActivator = configFile.Bind(
+                "Patches", "disableDistanceActivator", true,
+                "Whether to disable the distance activator. This prevents some pretty large lag spikes,"
+                + " as well as making some custom levels work correctly."
             );
 
             disableOriginShift = configFile.Bind(

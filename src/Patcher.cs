@@ -32,6 +32,7 @@ namespace MiscPatches {
             Apply(typeof(AvianAchievements));
             Apply(typeof(CustomLevelStamps));
             Apply(typeof(CustomLevelTA));
+            Apply(typeof(DisableDistanceActivator));
             Apply(typeof(DisableOriginShift));
             Apply(typeof(NorthernCabinTA));
             Apply(typeof(SummitStats));
