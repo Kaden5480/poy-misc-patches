@@ -11,6 +11,9 @@ namespace MiscPatches {
         [Field("Custom Level TA")]
         internal static ConfigEntry<bool> customLevelTA { get; private set; }
 
+        [Field("Disable Origin Shift")]
+        internal static ConfigEntry<bool> disableOriginShift { get; private set; }
+
         [Field("Northern Cabin TA")]
         internal static ConfigEntry<bool> northernCabinTA { get; private set; }
 
@@ -28,11 +31,15 @@ namespace MiscPatches {
          * <param name="configFile">The config file to bind to</param>
          */
         internal static void Init(ConfigFile configFile) {
-
             customLevelTA = configFile.Bind(
                 "Patches", "customLevelTA", true,
                 "Whether TimeAttack in custom levels should be patched so PBs"
                 + " get updated correctly."
+            );
+
+            disableOriginShift = configFile.Bind(
+                "Patches", "disableOriginShift", true,
+                "Disables the origin shifter because it's overcomplicated and breaks stuff."
             );
 
             northernCabinTA = configFile.Bind(
