@@ -34,7 +34,7 @@ namespace MiscPatches.Patches {
                 typeof(CustomLevelStamps), nameof(customLevelName)
             );
 
-            IEnumerable<CodeInstruction> newInsts = Helper.Replace(insts,
+            return Helper.Replace(insts,
                 new[] {
                     new CodeInstruction(OpCodes.Ldsfld, controlInfo),
                     new CodeInstruction(OpCodes.Ldfld, peakNameInfo),
@@ -45,11 +45,6 @@ namespace MiscPatches.Patches {
                     new CodeInstruction(OpCodes.Ldstr, ".es3"),
                 }
             );
-
-            foreach (CodeInstruction inst in newInsts) {
-                Plugin.LogDebug(Helper.InstToString(inst));
-                yield return inst;
-            }
         }
 
         /**
