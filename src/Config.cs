@@ -8,6 +8,9 @@ namespace MiscPatches {
      * </summary>
      */
     internal static class Config {
+        [Field("Custom Level Stamps")]
+        internal static ConfigEntry<bool> customLevelStamps { get; private set; }
+
         [Field("Custom Level TA")]
         internal static ConfigEntry<bool> customLevelTA { get; private set; }
 
@@ -16,6 +19,9 @@ namespace MiscPatches {
 
         [Field("Northern Cabin TA")]
         internal static ConfigEntry<bool> northernCabinTA { get; private set; }
+
+        [Field("Summit Stats")]
+        internal static ConfigEntry<bool> summitStats { get; private set; }
 
         [Field("Sundown Lights")]
         internal static ConfigEntry<bool> sundownLights { get; private set; }
@@ -31,6 +37,12 @@ namespace MiscPatches {
          * <param name="configFile">The config file to bind to</param>
          */
         internal static void Init(ConfigFile configFile) {
+            customLevelStamps = configFile.Bind(
+                "Patches", "customLevelStamps", true,
+                "Whether to fix stamping in custom levels so the stamper doesn't"
+                + " stamp both pages sometimes."
+            );
+
             customLevelTA = configFile.Bind(
                 "Patches", "customLevelTA", true,
                 "Whether TimeAttack in custom levels should be patched so PBs"
@@ -46,6 +58,12 @@ namespace MiscPatches {
                 "Patches", "northernCabinTA", true,
                 "Whether to prevent TimeAttack in the northern cabin spamming exceptions"
                 + " every frame in the logs."
+            );
+
+            summitStats = configFile.Bind(
+                "Patches", "summitStats", true,
+                "Whether to forcefully load global summit stats. This prevents the"
+                + " total summit count (found in stats) from being reset in certain cases."
             );
 
             sundownLights = configFile.Bind(

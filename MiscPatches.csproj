@@ -55,6 +55,9 @@
     <Reference Include="Assembly-CSharp.dll">
       <HintPath>$(GameLibPath)/Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass.dll">
+      <HintPath>$(GameLibPath)/Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="ModMenu.dll">
       <HintPath>$(PluginOutputPath)/ModMenu.dll</HintPath>
     </Reference>

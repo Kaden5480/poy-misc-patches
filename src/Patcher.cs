@@ -29,9 +29,11 @@ namespace MiscPatches {
          * </summary>
          */
         internal static void Patch() {
+            Apply(typeof(CustomLevelStamps));
             Apply(typeof(CustomLevelTA));
             Apply(typeof(DisableOriginShift));
             Apply(typeof(NorthernCabinTA));
+            Apply(typeof(SummitStats));
             Apply(typeof(SundownLights));
             Apply(typeof(WorkshopGlobe));
         }
