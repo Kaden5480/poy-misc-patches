@@ -31,6 +31,7 @@ namespace MiscPatches {
         internal static void Patch() {
             Apply(typeof(CustomLevelTA));
             Apply(typeof(NorthernCabinTA));
+            Apply(typeof(SundownLights));
             Apply(typeof(WorkshopGlobe));
         }
     }
