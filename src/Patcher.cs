@@ -35,6 +35,7 @@ namespace MiscPatches {
             Apply(typeof(DisableDistanceActivator));
             Apply(typeof(DisableOriginShift));
             Apply(typeof(NorthernCabinTA));
+            Apply(typeof(OrbitCameraPosition));
             Apply(typeof(SummitStats));
             Apply(typeof(SundownLights));
             Apply(typeof(WorkshopGlobe));

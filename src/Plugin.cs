@@ -27,6 +27,9 @@ namespace MiscPatches {
             // Initialize the config
             MiscPatches.Config.Init(this.Config);
 
+            // Initialize cache
+            Cache.Init();
+
             // Apply patches
             Patcher.Patch();
 

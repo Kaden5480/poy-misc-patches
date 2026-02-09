@@ -26,6 +26,9 @@ namespace MiscPatches {
         [Field("Northern Cabin TA")]
         internal static ConfigEntry<bool> northernCabinTA { get; private set; }
 
+        [Field("Orbit Camera Position")]
+        internal static ConfigEntry<bool> orbitCameraPosition { get; private set; }
+
         [Field("Summit Stats")]
         internal static ConfigEntry<bool> summitStats { get; private set; }
 
@@ -76,6 +79,13 @@ namespace MiscPatches {
                 "Patches", "northernCabinTA", true,
                 "Whether to prevent TimeAttack in the northern cabin spamming exceptions"
                 + " every frame in the logs."
+            );
+
+            orbitCameraPosition = configFile.Bind(
+                "Patches", "orbitCameraPosition", true,
+                "Whether to patch the level editor orbit camera"
+                + " so that it correctly uses the player's current position,"
+                + " instead of ending up somewhere far away."
             );
 
             summitStats = configFile.Bind(
