@@ -23,6 +23,10 @@ namespace MiscPatches {
         [Field("Disable Origin Shift")]
         internal static ConfigEntry<bool> disableOriginShift { get; private set; }
 
+        [Field("Hide Version With HUD")]
+        [Listener(typeof(Patches.HideVersionWithHUD), "UpdateVersion")]
+        internal static ConfigEntry<bool> hideVersionWithHUD { get; private set; }
+
         [Field("Northern Cabin TA")]
         internal static ConfigEntry<bool> northernCabinTA { get; private set; }
 
@@ -73,6 +77,11 @@ namespace MiscPatches {
             disableOriginShift = configFile.Bind(
                 "Patches", "disableOriginShift", true,
                 "Disables the origin shifter because it's overcomplicated and breaks stuff."
+            );
+
+            hideVersionWithHUD = configFile.Bind(
+                "Patches", "hideVersionWithHUD", true,
+                "Whether to hide the version number if the HUD is hidden."
             );
 
             northernCabinTA = configFile.Bind(

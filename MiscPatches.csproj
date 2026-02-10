@@ -4,7 +4,7 @@
     <Platform>Any CPU</Platform>
     <AssemblyName>MiscPatches</AssemblyName>
     <Description>A Peaks of Yore mod which patches some known bugs.</Description>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <RootNamespace>$(AssemblyName)</RootNamespace>
     <Configurations>Debug;Release</Configurations>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>

@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace MiscPatches {
     internal static class Cache {
+        internal static InGameMenu inGameMenu { get; private set; }
+        internal static GameObject inGameVersionsHolder { get; private set; }
         internal static LevelEditorManager levelEditorManager { get; private set; }
 
         /**
@@ -11,6 +13,14 @@ namespace MiscPatches {
          * </summary>
          */
         private static void FindObjects() {
+            inGameMenu = GameObject.FindObjectOfType<InGameMenu>();
+            if (inGameMenu != null) {
+                Button button = inGameMenu.gameObject.GetComponent<Button>();
+                if (button != null) {
+                    inGameVersionsHolder = button.inGameVersionsHolder;
+                }
+            }
+
             levelEditorManager = GameObject.FindObjectOfType<LevelEditorManager>();
         }
 
@@ -20,6 +30,8 @@ namespace MiscPatches {
          * </summary>
          */
         private static void Clear() {
+            inGameMenu = null;
+            inGameVersionsHolder = null;
             levelEditorManager = null;
         }
 
