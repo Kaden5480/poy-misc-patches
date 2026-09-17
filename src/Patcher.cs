@@ -30,6 +30,7 @@ namespace MiscPatches {
          */
         internal static void Patch() {
             Apply(typeof(AvianAchievements));
+            Apply(typeof(BundleFix));
             Apply(typeof(CustomLevelStamps));
             Apply(typeof(CustomLevelTA));
             Apply(typeof(DisableDistanceActivator));
@@ -40,6 +41,15 @@ namespace MiscPatches {
             Apply(typeof(SummitStats));
             Apply(typeof(SundownLights));
             Apply(typeof(WorkshopGlobe));
+        }
+
+        /**
+         * <summary>
+         * Runs patches on scene unloads.
+         * </summary>
+         */
+        internal static void SceneUnload() {
+            BundleFix.SceneUnload();
         }
     }
 }

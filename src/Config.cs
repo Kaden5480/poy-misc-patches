@@ -11,6 +11,9 @@ namespace MiscPatches {
         [Field("Avian Achievements")]
         internal static ConfigEntry<bool> avianAchievements { get; private set; }
 
+        [Field("Bundle Fix")]
+        internal static ConfigEntry<bool> bundleFix { get; private set; }
+
         [Field("Custom Level Stamps")]
         internal static ConfigEntry<bool> customLevelStamps { get; private set; }
 
@@ -54,6 +57,12 @@ namespace MiscPatches {
                 "Patches", "avianAchievements", true,
                 "Whether to fix wally mode and avian chaos rewards so they can use"
                 + " your achievements, instead of relying solely on your save data."
+            );
+
+            bundleFix = configFile.Bind(
+                "Patches", "bundleFix", true,
+                "Whether to patch custom asset bundles to significantly improve loading times"
+                + " for levels which use them."
             );
 
             customLevelStamps = configFile.Bind(

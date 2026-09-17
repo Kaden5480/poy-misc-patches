@@ -4,7 +4,7 @@ using System.Linq;
 using BepInEx;
 using HarmonyLib;
 using ModMenu;
-using UnityEngine.SceneManagement;
+using UILib.Patches;
 
 namespace MiscPatches {
     [BepInDependency("com.github.Kaden5480.poy-ui-lib")]
@@ -32,6 +32,10 @@ namespace MiscPatches {
 
             // Apply patches
             Patcher.Patch();
+
+            SceneLoads.AddUnloadListener(delegate {
+                Patcher.SceneUnload();
+            });
 
             // Register with Mod Menu as an optional dependency
             if (AccessTools.AllAssemblies().FirstOrDefault(
