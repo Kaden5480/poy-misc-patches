@@ -35,7 +35,7 @@ namespace MiscPatches {
 
             SceneLoads.AddUnloadListener(delegate {
                 Patcher.SceneUnload();
-            });
+            }, SceneType.Default | SceneType.Editor);
 
             // Register with Mod Menu as an optional dependency
             if (AccessTools.AllAssemblies().FirstOrDefault(

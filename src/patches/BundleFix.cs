@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -37,17 +38,19 @@ namespace MiscPatches.Patches {
          * </summary>
          */
         private static AssetBundle LoadBundleInject(string path) {
+            string name = Path.GetFileName(path);
+
             if (Config.bundleFix.Value == false) {
                 return AssetBundle.LoadFromFile(path);
             }
 
-            if (loadedBundles.TryGetValue(path, out AssetBundle bundle)) {
+            if (loadedBundles.TryGetValue(name, out AssetBundle bundle)) {
                 return bundle;
             }
 
             bundle = AssetBundle.LoadFromFile(path);
             if (bundle != null) {
-                loadedBundles.Add(path, bundle);
+                loadedBundles.Add(name, bundle);
             }
 
             return bundle;
@@ -84,6 +87,19 @@ namespace MiscPatches.Patches {
             }
 
             loadedBundles.Clear();
+        }
+
+        /**
+         * <summary>
+         * Disable the FullBundlerLoader because it's useless.
+         * Nothing uses this class, it just loads objects for the sake of it.
+         * </summary>
+         */
+        [HarmonyPrefix]
+        [HarmonyPatch(MethodType.Enumerator)]
+        [HarmonyPatch(typeof(FullBundleLoader), "LoadBundle")]
+        private static bool DisableFullBundleLoader() {
+            return !Config.bundleFix.Value;
         }
 
         /**
