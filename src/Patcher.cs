@@ -50,6 +50,7 @@ namespace MiscPatches {
          */
         internal static void SceneUnload() {
             BundleFix.SceneUnload();
+            WorkshopGlobe.SceneUnload();
         }
     }
 }

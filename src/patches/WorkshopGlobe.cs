@@ -55,5 +55,9 @@ namespace MiscPatches.Patches {
                 Unlock();
             }
         }
+
+        internal static void SceneUnload() {
+            Unlock();
+        }
     }
 }
