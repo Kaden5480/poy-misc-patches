@@ -40,6 +40,7 @@ namespace MiscPatches {
             Apply(typeof(OrbitCameraPosition));
             Apply(typeof(SummitStats));
             Apply(typeof(SundownLights));
+            Apply(typeof(TASlide));
             Apply(typeof(WorkshopGlobe));
         }
 

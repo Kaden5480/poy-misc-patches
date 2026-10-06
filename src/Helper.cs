@@ -34,6 +34,15 @@ namespace MiscPatches {
 
         /**
          * <summary>
+         * Gets the value of a field by name.
+         * </summary>
+         */
+        internal static FT GetFieldValue<T, FT>(T instance, string name) {
+            return (FT) AccessTools.Field(typeof(T), name).GetValue(instance);
+        }
+
+        /**
+         * <summary>
          * Compare two instructions for equivalence.
          * </summary>
          * <param name="a">The first instruction to compare</param>

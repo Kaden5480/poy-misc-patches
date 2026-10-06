@@ -42,6 +42,9 @@ namespace MiscPatches {
         [Field("Sundown Lights")]
         internal static ConfigEntry<bool> sundownLights { get; private set; }
 
+        [Field("Time Attack Slide Fix")]
+        internal static ConfigEntry<bool> taSlide { get; private set; }
+
         [Field("Workshop Globe")]
         internal static ConfigEntry<bool> workshopGlobe { get; private set; }
 
@@ -116,6 +119,13 @@ namespace MiscPatches {
                 "Patches", "sundownLights", true,
                 "Whether to prevent certain lights in sundown from being disabled."
                 + " This will still disable the sun, it just prevents other lights from being disabled."
+            );
+
+            taSlide = configFile.Bind(
+                "Patches", "taSlide", true,
+                "Whether to prevent sliding after reaching the summit when not bringing"
+                + " up the clipboard while time attack and the option to only show"
+                + " the clipboard on a PB are enabled."
             );
 
             workshopGlobe = configFile.Bind(
