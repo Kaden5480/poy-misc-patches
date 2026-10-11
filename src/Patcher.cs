@@ -38,6 +38,7 @@ namespace MiscPatches {
             Apply(typeof(HideVersionWithHUD));
             Apply(typeof(NorthernCabinTA));
             Apply(typeof(OrbitCameraPosition));
+            Apply(typeof(OverlayLeakFix));
             Apply(typeof(SummitStats));
             Apply(typeof(SundownLights));
             Apply(typeof(TASlide));

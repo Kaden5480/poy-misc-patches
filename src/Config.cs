@@ -36,6 +36,9 @@ namespace MiscPatches {
         [Field("Orbit Camera Position")]
         internal static ConfigEntry<bool> orbitCameraPosition { get; private set; }
 
+        [Field("Overlay Leak Fix")]
+        internal static ConfigEntry<bool> overlayLeakFix { get; private set; }
+
         [Field("Summit Stats")]
         internal static ConfigEntry<bool> summitStats { get; private set; }
 
@@ -107,6 +110,12 @@ namespace MiscPatches {
                 "Whether to patch the level editor orbit camera"
                 + " so that it correctly uses the player's current position,"
                 + " instead of ending up somewhere far away."
+            );
+
+            overlayLeakFix = configFile.Bind(
+                "Patches", "overlayLeakFix", true,
+                "Whether to prevent a resource leak relating to"
+                + " the game knowing when the steam overlay is open."
             );
 
             summitStats = configFile.Bind(
