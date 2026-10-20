@@ -20,8 +20,11 @@ namespace MiscPatches {
         [Field("Custom Level TA")]
         internal static ConfigEntry<bool> customLevelTA { get; private set; }
 
-        [Field("Disable Distance Activator")]
-        internal static ConfigEntry<bool> disableDistanceActivator { get; private set; }
+        [Field("Disable DA")]
+        internal static ConfigEntry<bool> disableDA { get; private set; }
+
+        [Field("Disable DA (Custom)")]
+        internal static ConfigEntry<bool> disableDACustom { get; private set; }
 
         [Field("Disable Origin Shift")]
         internal static ConfigEntry<bool> disableOriginShift { get; private set; }
@@ -83,10 +86,17 @@ namespace MiscPatches {
                 + " get updated correctly."
             );
 
-            disableDistanceActivator = configFile.Bind(
-                "Patches", "disableDistanceActivator", true,
-                "Whether to disable the distance activator. This prevents some pretty large lag spikes,"
-                + " as well as making some custom levels work correctly."
+            disableDA  = configFile.Bind(
+                "Patches", "disableDA", true,
+                "Whether to disable the distance activator in built-in levels"
+                + " (specifically ST and Eldris)."
+            );
+
+            disableDACustom = configFile.Bind(
+                "Patches", "disableDACustom", true,
+                "Whether to disable the distance activator in custom levels."
+                + " This prevents some pretty large lag spikes,"
+                + " as well as making some levels work correctly."
             );
 
             disableOriginShift = configFile.Bind(
